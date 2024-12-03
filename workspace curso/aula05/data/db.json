@@ -1,0 +1,81 @@
+{
+  "teste": [
+    {
+      "id": 1,
+      "mensagem": "Backend fake funcionando!"
+    }
+  ],
+  "alunos": [
+    {
+      "id": 1,
+      "nome": "Carlos",
+      "email": "carlos@teste.com",
+      "curso": "Java"
+    },
+    {
+      "id": 2,
+      "nome": "Danielle",
+      "email": "danielle@teste.com",
+      "curso": "JavaScript"
+    },
+    {
+      "id": 3,
+      "nome": "Wendell",
+      "email": "wendel@teste.com",
+      "curso": "React"
+    },
+    {
+      "id": 4,
+      "nome": "Ruan",
+      "email": "ruan@teste.com",
+      "curso": "FullStack"
+    },
+    {
+      "nome": "Noovo nome",
+      "email": "Novo email",
+      "curso": "Novo curso",
+      "id": 5
+    },
+    {
+      "nome": "Klewertton",
+      "email": "teste@gmail.com",
+      "curso": "Fullstack",
+      "id": 6
+    },
+    {
+      "nome": "Klewertton",
+      "email": "jpdanielle.soares@gmail.com",
+      "curso": "Fullstack",
+      "id": 7
+    },
+    {
+      "nome": "teste",
+      "email": "teste",
+      "curso": "teste",
+      "id": 8
+    }
+  ],
+  "cursos": [
+    {
+      "id": 1,
+      "nome": "Java",
+      "descricao": "descricao java",
+      "duracao": "6 meses",
+      "instrutor": "Kelson"
+    },
+    {
+      "nome": "Python",
+      "descricao": "Descricao python",
+      "duracao": "5 meses",
+      "instrutor": "Kelson",
+      "id": 2
+    },
+    {
+      "nome": "React",
+      "descricao": "Descricao react",
+      "duracao": "3 meses",
+      "instrutor": "Kelson TOP",
+      "id": 3
+    }
+  ]
+}
