@@ -1,0 +1,25 @@
+{
+    "resenhas": [
+        {
+            "id": 1,
+            "tituloLivro": "1984",
+            "autor": "George Orwell",
+            "resumo": "Uma visão distópica de um futuro totalitário.",
+            "conteudoCompleto": "O clássico de George Orwell descreve um mundo onde o governo controla todos os aspectos da vida..."
+        },
+        {
+            "id": 2,
+            "tituloLivro": "O Hobbit",
+            "autor": "J.R.R. Tolkien",
+            "resumo": "A jornada épica de Bilbo Bolseiro.",
+            "conteudoCompleto": "Esta obra prima de Tolkien nos leva ao mundo de Bilbo, um hobbit relutante que embarca em uma jornada para recuperar o tesouro dos anões..."
+        },
+        {
+            "id": 3,
+            "tituloLivro": "Dom Casmurro",
+            "autor": "Machado de Assis",
+            "resumo": "Um romance envolvente e intrigante.",
+            "conteudoCompleto": "Dom Casmurro é uma obra prima de Machado de Assis, explorando a complexidade dos relacionamentos e a ambiguidade da narrativa..."
+        }
+    ]
+}
