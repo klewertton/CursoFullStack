@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { FaCheckCircle, FaExclamationTriangle, FaQuestionCircle, FaTimesCircle } from 'react-icons/fa'
 import { useNavigate, useParams } from 'react-router-dom'
 import FornecedorForm from '../Fornecedor/FornecedorForm'
+import Modal from 'react-modal'
 
 const ClienteForm = () => {
   const [cliente, setCliente] = useState({
@@ -24,7 +25,7 @@ const ClienteForm = () => {
   const [modalErroAberto, setModalErroAberto] = useState(false)
 
   const { id } = useParams()
-  //const navigate = useNavigate()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (id) {
@@ -106,7 +107,7 @@ const ClienteForm = () => {
 
   const fecharModal = () => {
     setModalAberto(false)
-    navugate('/listar-clientes')
+    navigate('/listar-clientes')
   }
 
   const fecharModalErro = () => {
