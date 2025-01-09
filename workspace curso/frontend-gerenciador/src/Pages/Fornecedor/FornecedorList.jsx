@@ -10,6 +10,7 @@ const FornecedorList = () => {
     const [fornecedorSelecionado, setFornecedorSelecionado] = useState(null)//O usuario quando abre a pagina nao seleciona nenhum fornecedor, quando selecionar o estado deixa de ser null e passa a ser o id.
     const [modalAberto, setModalAberto] = useState(false)//falso pois ao abrir a pagina nao abre o modal, quando abrir ele se torna verdadeiro
     const [modalSucessoAberto, setModalSucessoAberto] = useState(false)
+    const [tooltipAberto, setTooltipAberto] = useState(false)
 
 
     useEffect(() => {
@@ -42,10 +43,25 @@ const FornecedorList = () => {
         abrirModalSucesso()
     }
 
+    const toggleTooltip = () => {
+        setTooltipAberto(!tooltipAberto)
+    }
+
 
   return (
     <div className='container mt-5'>
-        <h2 className='mb-4' style={{ position: 'relative'}}>Listagem de Fornecedores</h2>
+        <h2 className='mb-4' style={{ position: 'relative'}}>Listagem de Fornecedores
+        <FaCheckCircle
+            className='tooltip-icon'
+            onClick={toggleTooltip}
+            />
+             {tooltipAberto && (<div className="tooltip">
+                Aqui você pode ver, editar ou excluir fornecedores cadastrados no sistema.
+            </div>)}
+            
+        </h2>
+
+
         <Link to="/add-fornecedores" className="btn btn-primary mb-2"><FaPlus className="icon" /> Adicionar Fornecedor</Link>
 
         <table className='table'>
@@ -60,7 +76,7 @@ const FornecedorList = () => {
                     fornecedores.map(fornecedor => (
                         <tr key={fornecedor.id}>
                             <td>{fornecedor.nome}</td>
-                            <td>{fornecedor.cnpj}</td>
+                            <td>{fornecedor.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5")}</td>
                             <td>{fornecedor.email}</td>
                             <td>
                                 <Link to={`/edit-fornecedores/${fornecedor.id}`} className='btn btn-sm btn-warning'><FaEdit className="icon icon-btn" />Editar</Link>
