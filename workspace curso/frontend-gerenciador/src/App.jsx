@@ -2,6 +2,8 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import FornecedorList from './Pages/Fornecedor/FornecedorList'
 import FornecedorForm from './Pages/Fornecedor/FornecedorForm'
+import ClienteList from './Pages/Cliente/ClienteList'
+import ClienteForm from './Pages/Cliente/ClienteForm'
 import Navbar from './components/Navbar'
 import Inicial from './Pages/Inicial'
 
@@ -14,8 +16,9 @@ const App = () => {
         <Route path="/listar-fornecedores" element={<FornecedorList />} />
         <Route path="/add-fornecedores" element={<FornecedorForm />} />
         <Route path="/edit-fornecedores/:id" element={<FornecedorForm />} />
-        {/* <Route path='/listar-clientes' element={<ClienteList />} /> */}
-        {/* <Route path='/add-clientes' element={<ClienteForm />} /> */}
+        <Route path='/listar-clientes' element={<ClienteList />} /> 
+        <Route path='/add-clientes' element={<ClienteForm />} />
+        <Route path='/edit-clientes/:id' element={<ClienteForm />} />
       </Routes>
     </BrowserRouter>
 

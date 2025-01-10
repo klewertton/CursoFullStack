@@ -244,69 +244,124 @@
   ],
   "clientes": [
     {
-      "id": 1,
-      "nome": "Carlos da Silva",
-      "cpf": "123.456.789-10",
-      "email": "carlos.silva@gmail.com",
-      "cep": "01010-000",
-      "rua": "Rua Central",
-      "numero": "123",
-      "bairro": "Centro",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "pais": "Brasil"
+      "nome": "João Silva",
+      "cpf": "12345678901",
+      "email": "joao.silva@example.com",
+      "endereco": {
+        "cep": "01001-000",
+        "logradouro": "Rua das Flores",
+        "numero": "123",
+        "complemento": "Apto 12",
+        "bairro": "Centro",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "pais": "Brasil"
+      }
     },
     {
-      "id": 2,
-      "nome": "Ana Maria Oliveira",
-      "cpf": "987.654.321-00",
-      "email": "ana.oliveira@hotmail.com",
-      "cep": "02020-000",
-      "rua": "Avenida Paulista",
-      "numero": "456",
-      "bairro": "Bela Vista",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "pais": "Brasil"
+      "nome": "Maria Oliveira",
+      "cpf": "98765432100",
+      "email": "maria.oliveira@example.com",
+      "endereco": {
+        "cep": "02002-000",
+        "logradouro": "Avenida Brasil",
+        "numero": "456",
+        "complemento": "",
+        "bairro": "Jardim Paulista",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "pais": "Brasil"
+      }
     },
     {
-      "id": 3,
-      "nome": "João Pereira",
-      "cpf": "111.222.333-44",
-      "email": "joao.pereira@yahoo.com",
-      "cep": "03030-000",
-      "rua": "Rua das Flores",
-      "numero": "789",
-      "bairro": "Jardins",
-      "cidade": "Rio de Janeiro",
-      "estado": "RJ",
-      "pais": "Brasil"
+      "nome": "Carlos Pereira",
+      "cpf": "45678912345",
+      "email": "carlos.pereira@example.com",
+      "endereco": {
+        "cep": "03003-000",
+        "logradouro": "Rua das Acácias",
+        "numero": "789",
+        "complemento": "Casa",
+        "bairro": "Vila Mariana",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "pais": "Brasil"
+      }
     },
     {
-      "id": 4,
-      "nome": "Mariana Santos",
-      "cpf": "444.555.666-77",
-      "email": "mariana.santos@gmail.com",
-      "cep": "04040-000",
-      "rua": "Praça das Águas",
-      "numero": "101",
-      "bairro": "Águas Claras",
-      "cidade": "Curitiba",
-      "estado": "PR",
-      "pais": "Brasil"
+      "nome": "Ana Souza",
+      "cpf": "32165498700",
+      "email": "ana.souza@example.com",
+      "endereco": {
+        "cep": "04004-000",
+        "logradouro": "Avenida Paulista",
+        "numero": "1010",
+        "complemento": "Escritório 305",
+        "bairro": "Bela Vista",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "pais": "Brasil"
+      }
     },
     {
-      "id": 5,
-      "nome": "Pedro Rodrigues",
-      "cpf": "555.666.777-88",
-      "email": "pedro.rodrigues@outlook.com",
-      "cep": "05050-000",
-      "rua": "Travessa dos Pássaros",
-      "numero": "202",
-      "bairro": "Vila Nova",
-      "cidade": "Porto Alegre",
-      "estado": "RS",
-      "pais": "Brasil"
+      "nome": "Roberto Lima",
+      "cpf": "74185296311",
+      "email": "roberto.lima@example.com",
+      "endereco": {
+        "cep": "05005-000",
+        "logradouro": "Rua das Palmeiras",
+        "numero": "202",
+        "complemento": "",
+        "bairro": "Pinheiros",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "pais": "Brasil"
+      }
+    },
+    {
+      "nome": "Fernanda Castro",
+      "cpf": "36925814722",
+      "email": "fernanda.castro@example.com",
+      "endereco": {
+        "cep": "06006-000",
+        "logradouro": "Rua das Orquídeas",
+        "numero": "303",
+        "complemento": "Bloco B",
+        "bairro": "Brooklin",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "pais": "Brasil"
+      }
+    },
+    {
+      "nome": "Juliana Mendes",
+      "cpf": "85274196333",
+      "email": "juliana.mendes@example.com",
+      "endereco": {
+        "cep": "07007-000",
+        "logradouro": "Avenida Marginal",
+        "numero": "404",
+        "complemento": "",
+        "bairro": "Lapa",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "pais": "Brasil"
+      }
+    },
+    {
+      "nome": "Eduardo Ferreira",
+      "cpf": "96385274144",
+      "email": "eduardo.ferreira@example.com",
+      "endereco": {
+        "cep": "08008-000",
+        "logradouro": "Rua das Mangueiras",
+        "numero": "505",
+        "complemento": "",
+        "bairro": "Mooca",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "pais": "Brasil"
+      }
     }
   ]
 }

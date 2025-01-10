@@ -1,8 +1,8 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { FaCheckCircle, FaExclamationTriangle, FaQuestionCircle, FaTimesCircle } from 'react-icons/fa'
 import { useNavigate, useParams } from 'react-router-dom'
-import FornecedorForm from '../Fornecedor/FornecedorForm'
+import axios from 'axios'
+import { FaCheckCircle, FaExclamationTriangle, FaQuestionCircle, FaTimesCircle } from 'react-icons/fa'
+import InputMask from 'react-input-mask'
 import Modal from 'react-modal'
 
 const ClienteForm = () => {
@@ -10,14 +10,17 @@ const ClienteForm = () => {
     nome: "",
     cpf: "",
     email: "",
-    cep: "0",
-    rua: "",
-    numero: "",
-    bairro: "",
-    cidade: "",
-    estado: "",
-    pais: ""
-  })
+    endereco: {
+      cep: "",
+      logradouro: "",
+      numero: "",
+      complemento: "",
+      bairro: "",
+      cidade: "",
+      estado: "",
+      pais: "Brasil" //valor padrao inicial
+      }
+    })
 
   const [tooltipAberto, setTooltipAberto] = useState(false)
   const [mensagensErro, setMensagensErro] = useState([])
@@ -93,7 +96,7 @@ const ClienteForm = () => {
     const request = id ? axios.put(`/clientes/${id}`, clienteData) : axios.post('/clientes', clienteData)
     request.then(() => setModalAberto(true))
       .catch(error => {
-        if (error.responde.status === 500) {
+        if (error.response.status === 500) {
           setMensagensErro(['Erro no sistema, entre em contato com o suporte.'])
           setModalErroAberto(true)
         } else if (error.response && error.response.data) {
@@ -202,7 +205,7 @@ const ClienteForm = () => {
             type="text"
             className='form-control'
             id='logradouro'
-            nome='logradouro'
+            name='logradouro'
             value={cliente.endereco.logradouro}
             onChange={e => setCliente({
               ...cliente, endereco: {...cliente.endereco, logradouro: e.target.value}
@@ -216,7 +219,7 @@ const ClienteForm = () => {
             type="text"
             className='form-control'
             id='numero'
-            nome='numero'
+            name='numero'
             value={cliente.endereco.numero}
             onChange={e => setCliente({
               ...cliente, endereco: {...cliente.endereco, numero: e.target.value}
@@ -230,7 +233,7 @@ const ClienteForm = () => {
             type="text"
             className='form-control'
             id='logradouro'
-            nome='logradouro'
+            name='logradouro'
             value={cliente.endereco.logradouro}
             onChange={e => setCliente({
               ...cliente, endereco: {...cliente.endereco, logradouro: e.target.value}
@@ -244,7 +247,7 @@ const ClienteForm = () => {
             type="text"
             className='form-control'
             id='bairro'
-            nome='bairro'
+            name='bairro'
             value={cliente.endereco.bairro}
             onChange={e => setCliente({
               ...cliente, endereco: {...cliente.endereco, bairro: e.target.value}
@@ -258,7 +261,7 @@ const ClienteForm = () => {
             type="text"
             className='form-control'
             id='cidade'
-            nome='cidade'
+            name='cidade'
             value={cliente.endereco.cidade}
             onChange={e => setCliente({
               ...cliente, endereco: {...cliente.endereco, cidade: e.target.value}
@@ -272,7 +275,7 @@ const ClienteForm = () => {
             type="text"
             className='form-control'
             id='estado'
-            nome='estado'
+            name='estado'
             value={cliente.endereco.estado}
             onChange={e => setCliente({
               ...cliente, endereco: {...cliente.endereco, estado: e.target.value}
@@ -286,7 +289,7 @@ const ClienteForm = () => {
             type="text"
             className='form-control'
             id='pais'
-            nome='pais'
+            name='pais'
             value={cliente.endereco.pais}
             onChange={e => setCliente({
               ...cliente, endereco: {...cliente.endereco, pais: e.target.value}
@@ -304,7 +307,7 @@ const ClienteForm = () => {
         isOpen={modalAberto}
         onRequestClose={fecharModal}
         className='modal'
-        overClayClassName='overlay'
+        overlayClassName='overlay'
       >
         <div className='modalContent'>
           <FaCheckCircle className='icon successIcon' />
@@ -321,7 +324,7 @@ const ClienteForm = () => {
       isOpen={modalErroAberto}
       onRequestClose={fecharModalErro}
       className='modal'
-      overClayClassName='overlay'
+      overlayClassName='overlay'
       >
         <div className='modalContent'>
           <FaExclamationTriangle className='icon errorIcon' />
