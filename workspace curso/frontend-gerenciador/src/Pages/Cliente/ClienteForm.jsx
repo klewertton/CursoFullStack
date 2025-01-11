@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../../api'
 import { FaCheckCircle, FaExclamationTriangle, FaQuestionCircle, FaTimesCircle } from 'react-icons/fa'
 import InputMask from 'react-input-mask'
 import Modal from 'react-modal'
@@ -314,7 +314,7 @@ const ClienteForm = () => {
           <h2>{id ? 'Cliente atualidado com sucesso!' : 'Cliente adicionado com sucesso!'}</h2>
           <div className='modalButton'>
             <button onClick={fecharModal} className='btn-success'>Fechar</button>
-            {!id && <button onClick={adicionarOutroCliente} className='btn-secondary'>Adicionarm outro cliente</button>}
+            {!id && <button onClick={adicionarOutroCliente} className='btn-secondary'>Adicionar outro cliente</button>}
           </div>
         </div>
       </Modal>

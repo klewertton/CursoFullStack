@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
-import axios from 'axios'
+import axios from '../../api'
 import { Link } from 'react-router-dom'
 import { FaCheckCircle, FaEdit, FaExclamationTriangle, FaPlus, FaTrash } from 'react-icons/fa'
 import Modal from 'react-modal'
@@ -14,8 +14,7 @@ const ClienteList = () => {
 
     useEffect(() => {
         axios.get("/clientes")
-        .then(response => setClientes(response.data)
-        )
+        .then(response => setClientes(response.data))
         .catch(error => console.error("Erro ao carregar os clientes", error))
     }, [])
 

@@ -244,6 +244,7 @@
   ],
   "clientes": [
     {
+      "id": "1",
       "nome": "João Silva",
       "cpf": "12345678901",
       "email": "joao.silva@example.com",
@@ -259,6 +260,7 @@
       }
     },
     {
+      "id": "2",
       "nome": "Maria Oliveira",
       "cpf": "98765432100",
       "email": "maria.oliveira@example.com",
@@ -274,6 +276,7 @@
       }
     },
     {
+      "id": "3",
       "nome": "Carlos Pereira",
       "cpf": "45678912345",
       "email": "carlos.pereira@example.com",
@@ -289,6 +292,7 @@
       }
     },
     {
+      "id": "4",
       "nome": "Ana Souza",
       "cpf": "32165498700",
       "email": "ana.souza@example.com",
@@ -304,6 +308,7 @@
       }
     },
     {
+      "id": "5",
       "nome": "Roberto Lima",
       "cpf": "74185296311",
       "email": "roberto.lima@example.com",
@@ -319,6 +324,7 @@
       }
     },
     {
+      "id": "6",
       "nome": "Fernanda Castro",
       "cpf": "36925814722",
       "email": "fernanda.castro@example.com",
@@ -334,6 +340,7 @@
       }
     },
     {
+      "id": "7",
       "nome": "Juliana Mendes",
       "cpf": "85274196333",
       "email": "juliana.mendes@example.com",
@@ -349,6 +356,7 @@
       }
     },
     {
+      "id": "8",
       "nome": "Eduardo Ferreira",
       "cpf": "96385274144",
       "email": "eduardo.ferreira@example.com",
@@ -362,6 +370,22 @@
         "estado": "SP",
         "pais": "Brasil"
       }
+    },
+    {
+      "nome": "Klewertton Carlos",
+      "cpf": "10204961424",
+      "email": "Klewertton.tenorio@gmail.com",
+      "endereco": {
+        "cep": "58055-300",
+        "logradouro": "Rua Antônio do Espírito Santo",
+        "numero": "00",
+        "complemento": "",
+        "bairro": "Mangabeira",
+        "cidade": "João Pessoa",
+        "estado": "PB",
+        "pais": "Brasil"
+      },
+      "id": "dZohBrc"
     }
   ]
 }
