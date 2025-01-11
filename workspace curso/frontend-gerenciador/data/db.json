@@ -190,7 +190,7 @@
     {
       "nome": "Teste '",
       "cnpj": "12341434131231",
-      "email": "teste1@gmail.com",
+      "email": "teste2@gmail.com",
       "tipoFornecedor": "COMUN",
       "endereco": {
         "cep": "58073-443",
@@ -237,9 +237,16 @@
     {
       "id": 5,
       "nome": "Fone de Ouvido Bluetooth",
-      "preco": "250.00",
+      "preco": "R$ 300,00",
       "descricao": "Fone sem fio com excelente qualidade de som.",
       "quantidadeEstoque": 50
+    },
+    {
+      "nome": "Teclado",
+      "preco": "R$ 500,00",
+      "descricao": "Gamer",
+      "quantidadeEstoque": "15",
+      "id": 6
     }
   ],
   "clientes": [
@@ -372,7 +379,7 @@
       }
     },
     {
-      "nome": "Klewertton Carlos",
+      "nome": "Klewertton Carlos tenorio",
       "cpf": "10204961424",
       "email": "Klewertton.tenorio@gmail.com",
       "endereco": {

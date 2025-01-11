@@ -100,7 +100,7 @@ const FornecedorForm = () => {
     }
 
     //Determiar se a função será um POST ou um PUT (edição)
-    const request = id ? axios.put('/fornecedores/${id}', fornecedorData) : axios.post('/fornecedores', fornecedorData)
+    const request = id ? axios.put(`/fornecedores/${id}`, fornecedorData) : axios.post('/fornecedores', fornecedorData)
     request.then(() => setModalAberto(true))
       .catch(error => {
         if (error.response.status === 500) {
@@ -362,7 +362,7 @@ const FornecedorForm = () => {
           <h2>Ocorreu um ou mais erros:</h2>
           {
             mensagensErro.map((mensagem, index) => (
-            <h4 key={index}>{mensagem}</h4>
+              <h4 key={index}>{mensagem}</h4>
             ))
           }
           <br />
