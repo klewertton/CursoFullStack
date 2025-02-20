@@ -70,6 +70,7 @@ const ProdutoList = () => {
           <th>Preço:</th>
           <th>Descrição:</th>
           <th>Quantidade de Estoque:</th>
+          <th>Fornecedor:</th>
           <th>Ações:</th>
         </thead>
         <tbody>
@@ -77,8 +78,10 @@ const ProdutoList = () => {
             produto.map(produto => (
               <tr key={produto.id}>
                 <td>{produto.nome}</td>
-                <td>{produto.preco.replace(".", ",")}</td>
+                <td>{produto.descricao}</td>
+                <td>{parseFloat(produto.preco).toFixed(2)}</td>
                 <td>{produto.quantidadeEstoque}</td>
+                <td>...</td>
                 <td>
                   <Link to={`/edit-produtos/${produto.id}`} className='btn btn-sm btn-warning'><FaEdit className="icon icon-btn" />Editar</Link>
                   <button onClick={() => abrirModal(produto)} className="btn btn-sm btn-danger"><FaTrash className="icon icon-btn" /> Excluir</button>

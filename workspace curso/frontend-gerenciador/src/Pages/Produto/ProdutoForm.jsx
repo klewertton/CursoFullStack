@@ -5,14 +5,18 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import Modal from 'react-modal'
 
+
 const ProdutoForm = () => {
 
   const [produto, setProduto] = useState({
     nome: "",
     preco: "",
     descricao: "",
-    quantidadeEstoque: ""
+    quantidadeEstoque: "",
+    fornecedorId: ""
   })
+  //Lista para puxar os fornecedores para adicionar em cada produto
+  const [fornecedores, setFornecedores] = useState([])
 
   const [tooltipAberto, setTooltipAberto] = useState(false)
   const [mensagensErro, setMensagensErro] = useState([])
@@ -23,44 +27,67 @@ const ProdutoForm = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (id) {
-      axios.get(`/produtos/${id}`)
-        .then(response => setProduto(response.data))
-        .catch(error => console.error('Erro ao tentar carregar o produto.', error))
-    } else {
-      setProduto({
-        nome: "",
-        preco: "",
-        descricao: "",
-        quantidadeEstoque: ""
-      })
-    }
+    axios.get('/fornecedores')
+      .then(response => setFornecedores(response.data))
+      .catch(error => console.error('Erro ao tentar carregar os fornecedores.', error))
+
+      //Se houver um id, significa que vai editar, preciso buscar o produto a ser editado.
+      if (id) {
+        axios.get(`/produtos/${id}`)
+          .then(response => setProduto({
+            ...response.data,
+            fornecedorId: response.data.fornecedor.id ? response.data.fornecedor.id : ""
+          }))
+          .catch(error => console.error('Ocorreu um erro.', error))
+      } else {
+        setProduto({
+          nome: "",
+          preco: "",
+          descricao: "",
+          quantidadeEstoque: "",
+          fornecedorId: ""
+        })
+      }
   }, [id])
+
+  // useEffect(() => {
+  //   if (id) {
+  //     axios.get(`/produtos/${id}`)
+  //       .then(response => setProduto(response.data))
+  //       .catch(error => console.error('Erro ao tentar carregar o produto.', error))
+  //   } else {
+  //     setProduto({
+  //       nome: "",
+  //       preco: "",
+  //       descricao: "",
+  //       quantidadeEstoque: ""
+  //     })
+  //   }
+  // }, [id])
 
   const toggleTooltip = () => {
     setTooltipAberto(!tooltipAberto)
   }
 
-  const formatarPreco = (valor) => {
-    const numero = valor.replace(/\D/g, "") // Remove tudo que não for número
-    const formatado = (Number(numero) / 100).toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    })
-    return formatado
-  }
+  // const formatarPreco = (valor) => {
+  //   const numero = valor.replace(/\D/g, "") // Remove tudo que não for número
+  //   const formatado = (Number(numero) / 100).toLocaleString("pt-BR", {
+  //     style: "currency",
+  //     currency: "BRL",
+  //   })
+  //   return formatado
+  // }
 
-  const handleChangePreco = (e) => {
-    const valor = e.target.value;
-    const formatado = formatarPreco(valor)
-    setProduto({ ...produto, preco: formatado })
-  }
+
 
 
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setMensagensErro([])
+
+    const precoFormatado = parseFloat(produto.preco).toFixed(2)
+    const produtoData = {...produto, preco: precoFormatado}
 
 
     const request = id ? axios.put(`/produtos/${id}`, produto) : axios.post('/produtos', produto)
@@ -76,6 +103,19 @@ const ProdutoForm = () => {
           console.error('Ocorreu um erro', error)
         }
       })
+  }
+
+  const handleChangePreco = (e) => {
+    let valor = e.target.value;
+    
+    valor = valor.replace(',', '.')
+    valor - valor.replace(/[^0-9.]/g, '')
+
+    if (valor.includes('.')) {
+      const [parteInteira, parteDecimal] = valor.split('.')
+      valor = parteInteira  + '.' + (parteDecimal ? parteDecimal.slice(0, 2) : '')
+    }
+    setProduto({...produto, preco: valor})
   }
 
   const fecharModal = () => {
@@ -158,6 +198,24 @@ const ProdutoForm = () => {
             onChange={((e) => setProduto({ ...produto, quantidadeEstoque: e.target.value }))}
             required
           />
+        </div>
+        <div className='form-group'>
+          <label htmlFor="fornecedorId">Fornecedor:</label>
+          <select
+            className='form-control'
+            id="fornecedorId"
+            value={produto.fornecedorId}
+            onChange={((e) => setProduto({ ...produto, fornecedorId: e.target.value }))}
+            required
+          >
+            <option value="">Selecione um fornecedor</option>
+            {fornecedores.map(fornecedor => (
+              <option key={fornecedor.id} value={fornecedor.id}>
+                {fornecedor.nome}
+              </option>
+            ))}
+          </select>
+          
         </div>
         <button type='submit' className='btn-success'>
           {id ? 'Editar' : 'Adicionar'}
