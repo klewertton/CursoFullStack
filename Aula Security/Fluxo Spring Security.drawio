@@ -1,0 +1,49 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
+  <diagram name="Spring Security Flow" id="ZE6JRg2gSn2KtecMFn1n">
+    <mxGraphModel dx="954" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-1" value="🔐 AuthController&#xa;👉 Recebe as requisições /auth/login e /auth/register&#xa;📤 Chama o AuthService para gerar ou validar token" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-2" value="🛠️ AuthService&#xa;🔑 Responsável por autenticar usuários e gerar o JWT&#xa;✔️ Realiza login e registro, utilizando o JwtService" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-3" value="📦 JwtService&#xa;📌 Gera e valida o token JWT&#xa;🧠 Decodifica claims e extrai username do token" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="600" y="60" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-4" value="👤 UsuarioService&#xa;🔍 Implementa UserDetailsService&#xa;📚 Fornece detalhes do usuário para o Spring Security" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="600" y="200" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-5" value="🧱 JwtAuthenticationFilter&#xa;🕵️‍♂️ Intercepta requisições HTTP&#xa;📥 Extrai token do header e autentica via SecurityContext" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="200" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-6" value="🛡️ SecurityConfig&#xa;⚙️ Define regras de segurança da aplicação&#xa;- Libera /auth/**&#xa;- Protege demais rotas&#xa;- Registra filtro JWT" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-7" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="4gIT7A0ZUTBY4m6znZrp-1" target="4gIT7A0ZUTBY4m6znZrp-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-8" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="4gIT7A0ZUTBY4m6znZrp-2" target="4gIT7A0ZUTBY4m6znZrp-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-9" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="4gIT7A0ZUTBY4m6znZrp-6" target="4gIT7A0ZUTBY4m6znZrp-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-10" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="4gIT7A0ZUTBY4m6znZrp-5" target="4gIT7A0ZUTBY4m6znZrp-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-11" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="4gIT7A0ZUTBY4m6znZrp-5" target="4gIT7A0ZUTBY4m6znZrp-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-12" value="💡 Observação: Todo token válido autoriza acesso a endpoints protegidos, via SecurityContext" style="shape=note;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4gIT7A0ZUTBY4m6znZrp-13" value="📌 Dica: Use @PreAuthorize(&quot;hasRole(&#39;ADMIN&#39;)&quot;) para proteger endpoints específicos" style="shape=note;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="560" y="340" width="280" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
